@@ -4,20 +4,9 @@ import org.junit.jupiter.api.Test;
 
 class RadioTest {
 
-    @Test
-    public void shouldUseConstructor() {
-        Radio radio2 = new Radio
-                        (7,
-                        0,
-                        9,
-                        50,
-                        0,
-                        100);
+    Radio radio = new Radio(10);
+    Radio radio2 = new Radio();
 
-        assertEquals(7, radio2.getCurrentStation());
-    }
-
-    Radio radio = new Radio();
 
     @Test
     void shouldChangeStation() {
@@ -55,7 +44,7 @@ class RadioTest {
     }
 
     @Test
-    void  shouldSetToPrev() {
+    void shouldSetToPrev() {
         radio.setCurrentStation(0);
         radio.increaseStationPrev();
         assertEquals(9, radio.getCurrentStation());
@@ -69,7 +58,7 @@ class RadioTest {
     }
 
     @Test
-    void  shouldSetToPrev3() {
+    void shouldSetToPrev3() {
         radio.setCurrentStation(-1);
         radio.increaseStationPrev();
         assertEquals(9, radio.getCurrentStation());
@@ -105,14 +94,14 @@ class RadioTest {
 
 
     @Test
-    void  shouldSetToPrevVolume() {
+    void shouldSetToPrevVolume() {
         radio.setCurrentVolume(6);
         radio.decreaseVolume();
         assertEquals(5, radio.getCurrentVolume());
     }
 
     @Test
-    void  shouldSetToPrevVolume2() {
+    void shouldSetToPrevVolume2() {
         radio.setCurrentVolume(-1);
         radio.decreaseVolume();
         assertEquals(100, radio.getCurrentVolume());
@@ -125,9 +114,12 @@ class RadioTest {
         assertEquals(0, radio.getCurrentVolume());
     }
 
-
-
     private void assertEquals(int expected, int actual) {
+    }
+
+    @Test
+    public void shouldUseConstructorNoArgs() {
+        assertEquals(3, radio2.getCurrentStation());
     }
 
 }
